@@ -1,0 +1,65 @@
+# Recreate the README content after reset
+
+readme_content = """
+# Advanced Exploration in Machine Learning Projects
+
+This repository contains multiple machine learning and deep learning projects developed as part of academic coursework and self-initiated exploration. The projects cover supervised classification, feature fusion, continual learning, and deep learning model implementations.
+
+---
+
+## 📌 Project 1: Binary Classification & Multi-Feature Learning
+- **Description:**  
+  Developed binary classification models using three different feature representations: Emoticons, Deep Features, and Text Sequences. Implemented feature engineering, model selection, and dataset fusion techniques to optimize classification performance.  
+
+- **Approach:**  
+  - Trained individual models on each dataset (CNN, LSTM, CNN+GRU).  
+  - Conducted experiments with training subsets (20%–100%) to analyze learning curves.  
+  - Performed feature fusion across datasets, using Random Forest to improve generalization.  
+
+- **Results:**  
+  - CNN on Emoticons → **93.05% accuracy**  
+  - LSTM on Deep Features → **98.36% accuracy**  
+  - CNN+GRU on Text Sequences → **93.05% accuracy**  
+  - Random Forest on combined dataset → **93.05% accuracy**  
+
+- **How to Run:**  
+  1. Place `51.py`, `model1.py`, `model2.py`, `model3.py`, and `combine_model.py` in the same directory.  
+  2. Copy dataset files (`.csv`, `.npz`) into the same directory.  
+  3. Run `51.py` to generate prediction files:  
+     - `pred_emoticon.txt`  
+     - `pred_deepfeat.txt`  
+     - `pred_textseq.txt`  
+     - `pred_combined.txt`  
+
+---
+
+## 📌 Project 2: Continual Learning for CIFAR-10
+- **Description:**  
+  Built a continual learning framework for CIFAR-10 image classification using LwP (Learning with Pseudo-labels) classifiers. The goal was to adapt models incrementally to new datasets without retaining past data, while handling distribution shifts.  
+
+- **Approach:**  
+  - Trained on labeled dataset D1, then iteratively updated models f1–f10 using pseudo-labeling on unlabeled datasets D2–D10.  
+  - Incorporated confidence thresholding and techniques from NeurIPS 2021 and ICLR 2023.  
+  - Extended framework to D11–D20 to test distribution shift adaptability.  
+  - Used ConvNeXtBase (pretrained CNN) for robust embeddings.  
+
+- **Results:**  
+  - Final model achieved **87.52% accuracy** on D10, demonstrating effective incremental adaptation.  
+
+- **How to Run:**  
+  1. For **Task 1**: update dataset paths in `task1.ipynb` (Cell 8, lines 2–3).  
+  2. For **Task 2**: update dataset paths in `task2.ipynb` (Cell 5, lines 12, 14, 16).  
+  3. Place `models_task1.pth` in the same directory as dataset files, or regenerate it by running Task 1 before Task 2.  
+
+---
+
+## ⚙️ Technology Stack
+Python, TensorFlow, PyTorch, NumPy, Pandas, Scikit-learn, Matplotlib, Torchvision, ConvNeXtBase, Random Forest, CNN, LSTM, GRU
+"""
+
+# Save as a README.md file
+file_path = "/mnt/data/Combined_README.md"
+with open(file_path, "w") as f:
+    f.write(readme_content)
+
+file_path
